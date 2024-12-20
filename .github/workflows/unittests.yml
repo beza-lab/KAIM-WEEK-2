@@ -20,6 +20,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run tests with verbose output
       run: |
-        python -m unittest discover -s tests
+        python -m unittest discover -s tests -v
+
+    - name: Print environment variables
+      run: printenv
+
+    - name: List installed packages
+      run: pip list
