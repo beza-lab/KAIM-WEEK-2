@@ -1,10 +1,11 @@
-You are working for a wealthy investor that specialises in purchasing assets that are undervalued.  This investor’s due diligence on all purchases includes a detailed analysis of the data that underlies the business, to try to understand the fundamentals of the business and especially to identify opportunities to drive profitability by changing the focus of which products or services are being offered.
+Understand user behavior: Analyze the most-used handsets, manufacturers, and how customers use data.
 
+Track engagement: Find out which users are most active and group them based on their usage.
 
-Your last role with this investor saw you do a rich analysis of a delivery company and you helped to identify that delivery to university students was the most profitable route to follow, and your analysis helped the investor purchase this delivery company and ramp up profits by 25% within 6 months through focussing on the most profitable aspect of the business.  This was driven by university students always being hungry, awake at all hours, willing to purchase from a limited food menu, and tending to live within a small geographical area.
+Improve experience: Study network and device performance to understand user satisfaction.
 
+Measure satisfaction: Combine engagement and experience data to identify the most satisfied customers.
 
-The investor is interested in purchasing TellCo, an existing mobile service provider in the Republic of Pefkakia.  TellCo’s current owners have been willing to share their financial information but have never employed anyone to look at the data that is generated automatically by their systems.
+Build a dashboard: Create a user-friendly dashboard to present  findings.
 
-
-Your employer wants you to provide a report to analyse opportunities for growth and make a recommendation on whether TellCo is worth buying or selling.  You will do this by analysing a telecommunication dataset that contains useful information about the customers & their activities on the network. You will deliver insights you managed to extract to your employer through an easy-to-use web-based dashboard and a written report. 
+we need to provide a report to analyse opportunities for growth and make a recommendation on whether TellCo is worth buying or selling.  This is done by analysing a telecommunication dataset that contains useful information about the customers & their activities on the network. 
