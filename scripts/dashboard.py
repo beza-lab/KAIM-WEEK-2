@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
