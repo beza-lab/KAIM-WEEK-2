@@ -2,9 +2,6 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
@@ -111,8 +108,25 @@ def get_experience_analysis():
 
 # Satisfaction Analysis
 def get_satisfaction_analysis():
+    # Aggregate engagement information
+    engagement_aggregates = df.groupby('MSISDN/Number').agg(
+        total_duration=('Dur. (ms)', 'sum'),
+        total_data=('total_data', 'sum'),
+        number_of_sessions=('Bearer Id', 'count')
+    ).reset_index()
+
+    # Calculate a combined engagement score
+    engagement_aggregates['engagement_score'] = engagement_aggregates['total_duration'] + engagement_aggregates['total_data']
+
+    # Aggregate experience information
+    experience_aggregates = df.groupby('MSISDN/Number').agg(
+        avg_tcp_retransmission=('TCP DL Retrans. Vol (Bytes)', 'mean'),
+        avg_rtt=('Avg RTT DL (ms)', 'mean'),  # Assuming you want the downlink RTT
+        avg_throughput=('Avg Bearer TP DL (kbps)', 'mean')  # Assuming you want the downlink throughput
+    ).reset_index()
+
     # Merge engagement and experience data
-    ##combined_data = pd.merge(engagement_aggregates, experience_aggregates, on='MSISDN/Number')
+    combined_data = pd.merge(engagement_aggregates, experience_aggregates, on='MSISDN/Number')
 
     # Calculate satisfaction score as the average of engagement and experience scores
     combined_data['satisfaction_score'] = (combined_data['engagement_score'] + combined_data['experience_score']) / 2
@@ -155,9 +169,9 @@ app.layout = html.Div([
         dcc.Tab(label='Experience Analysis', children=[
             get_experience_analysis()
         ]),
-        ##dcc.Tab(label='Satisfaction Analysis', children=[
-        ##    get_satisfaction_analysis()
-        ##])
+        dcc.Tab(label='Satisfaction Analysis', children=[
+            get_satisfaction_analysis()
+        ])
     ])
 ])
 
